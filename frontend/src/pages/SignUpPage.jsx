@@ -1,8 +1,7 @@
-import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { ShipWheelIcon } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router";
-import { signupApi } from "../apis/apis";
+import { useSignup } from "../hooks/useSignup";
 
 export const SignupPage = () => {
   const [signupData, setSignupData] = useState({
@@ -11,20 +10,13 @@ export const SignupPage = () => {
     password: "",
   });
 
-  const queryClient = useQueryClient();
-  const {
-    mutate: signupMutation,
-    isPending,
-    error
-  } =  useMutation({
-    mutationFn: signupApi,
-    onSuccess: () => queryClient.invalidateQueries({ queryKey: ["authUser"] }),
-  });
+  const {isPending, error, signupMutation } = useSignup();
 
   const handleSignup = (e) => {
     e.preventDefault();
     signupMutation(signupData)
   };
+  
   return (
     <div
       className="h-screen flex items-center justify-center p-4 sm:p-6 md:p-8"
@@ -47,7 +39,7 @@ export const SignupPage = () => {
             </span>
           </div>
 
-          {/* Error Message is any */}
+          {/* Error Message if any */}
 
           {error && (
             <div className="alert alert-error mb-4">
@@ -73,7 +65,7 @@ export const SignupPage = () => {
                     </label>
                     <input
                       type="text"
-                      placeholder="Enter your name"
+                      placeholder="Test User"
                       className="input input-bordered w-full"
                       value={signupData.fullName}
                       onChange={(e) =>
@@ -93,7 +85,7 @@ export const SignupPage = () => {
                     </label>
                     <input
                       type="email"
-                      placeholder="Enter your email"
+                      placeholder="testuser@gmail.com"
                       className="input input-bordered w-full"
                       value={signupData.email}
                       onChange={(e) =>

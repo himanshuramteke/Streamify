@@ -10,6 +10,16 @@ export const signupApi = async (signupData) => {
     }
 }
 
+export const loginApi = async (loginData) => {
+    try {
+        const response = await axiosInstance.post("/auth/login", loginData);
+        return response.data;
+    } catch (error) {
+        console.log("Error in loginApi", error.message);
+        throw error;
+    }
+}
+
 export const getAuthUserApi = async () => {
     try {
         const response = await axiosInstance.get("/auth/me");
