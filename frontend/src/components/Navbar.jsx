@@ -2,6 +2,7 @@ import { Link, useLocation } from "react-router";
 import { useAuthUser } from "../hooks/useAuthUser";
 import { useLogout } from "../hooks/useLogout";
 import { BellIcon, LogOutIcon, ShipWheelIcon } from "lucide-react";
+import { ThemeSelector } from "./ThemeSelector";
 
 export const Navbar = () => {
   const { authUser } = useAuthUser();
@@ -37,8 +38,7 @@ export const Navbar = () => {
             </Link>
           </div>
 
-          {/* TODO */}
-          {/* <ThemeSelector /> */}
+          <ThemeSelector />
 
           <div className="avatar">
             <div className="w-9 rounded-full">

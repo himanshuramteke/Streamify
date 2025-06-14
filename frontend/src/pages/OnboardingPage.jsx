@@ -183,7 +183,8 @@ export const OnboardingPage = () => {
                 <span className="label-text">Location</span>
               </label>
               <div className="relative">
-                <MapPinIcon className="absolute top-1/2 transform -translate-y-1/2 left-3 size-5 text-base-content opacity-70" />
+                <MapPinIcon className="absolute top-1/2 transform -translate-y-1/2 left-3 size-5 
+                text-base-content opacity-70" />
                 <input
                   type="text"
                   name="location"
