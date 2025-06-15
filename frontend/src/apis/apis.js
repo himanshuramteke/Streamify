@@ -49,3 +49,63 @@ export const completeOnboardingApi = async (userData) => {
         throw error;
     }
 }
+
+export const getUsersFriendsApi = async () => {
+    try {
+        const response = await axiosInstance.get("/users/friends");
+        return response.data;
+    } catch (error) {
+        console.log("Error in getUsers friends", error);
+        throw error;
+    }
+}
+
+export const getRecommendedUsersApi = async () => {
+    try {
+        const response = await axiosInstance.get("/users");
+        return response.data;
+    } catch (error) {
+        console.log("Error in getRecommended Users", error);
+        throw error;
+    }
+}
+
+export const getOutgoingFriendReqsApi = async () => {
+    try {
+        const response = await axiosInstance.get("/users/outgoing-friend-requests");
+        return response.data;
+    } catch (error) {
+        console.log("Error in getOutgoingFriendsReqs", error);
+        throw error;
+    }
+}
+
+export const sendFriendRequestApi = async (userId) => {
+  try {
+    const response = await axiosInstance.post(`/users/friend-request/${userId}`);
+    return response.data;
+  } catch (error) {
+    console.log("Error in sendFriendRequest", error);
+    throw error;
+  }
+}
+
+export const getFriendRequestsApi = async () =>  {
+  try {
+    const response = await axiosInstance.get("/users/friend-requests");
+    return response.data;
+  } catch (error) {
+    console.log("Error in getFriendRequests", error);
+    throw error;
+  }
+}
+
+export const acceptFriendRequestApi = async (requestId) => {
+  try {
+    const response = await axiosInstance.put(`/users/friend-request/${requestId}/accept`);
+    return response.data;
+  } catch (error) {
+    console.log("Error in acceptFriendRequest", error);
+    throw error;
+  }
+}
