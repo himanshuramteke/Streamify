@@ -9,7 +9,7 @@ export async function getRecommendedUsersController(req, res) {
     const recommendedUsers = await User.find({
       $and: [
         { _id: { $ne: currentUserId } }, //exclude current user
-        { $id: { $nin: currentUser.friends } }, //exclude current user's friends
+        { _id: { $nin: currentUser.friends } }, //exclude current user's friends
         { isOnboarded: true },
       ],
     });
@@ -39,7 +39,7 @@ export async function sendFriendRequestController(req, res) {
     const { id: recipientId } = req.params;
 
     //prevent sending friend request to yourself;
-    if(my === recipientId) {
+    if(myId === recipientId) {
       return res.status(400).json({ message: "You can't send friend request to yourself" });
     }
 
