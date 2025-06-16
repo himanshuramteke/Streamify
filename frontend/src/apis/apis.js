@@ -109,3 +109,13 @@ export const acceptFriendRequestApi = async (requestId) => {
     throw error;
   }
 }
+
+export const getStreamTokenApi = async () => {
+    try {
+        const response = await axiosInstance.get("/chat/token");
+        return response.data;
+    } catch (error) {
+        console.log("Error in getStreamToken Api", error);
+        throw error;
+    }
+}
