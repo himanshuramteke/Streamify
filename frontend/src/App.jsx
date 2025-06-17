@@ -11,7 +11,7 @@ import { PageLoader } from "./components/PageLoader"
 import { useAuthUser } from "./hooks/useAuthUser"
 import { Layout } from "./components/Layout"
 import { useThemeStore } from "./store/useThemeStore"
-import { FriendCard } from "./components/FriendCard"
+import { FriendsPage } from "./pages/FriendsPage"
 
 const App = () => {
 
@@ -58,7 +58,7 @@ const App = () => {
             element={
               isAuthenticated && isOnboarded ? (
                 <Layout showSidebar={true}>
-                  <FriendCard />
+                  <FriendsPage />
                 </Layout>
               ) : (
                 <Navigate to={!isAuthenticated ? "/login" : "/onboarding"} />
