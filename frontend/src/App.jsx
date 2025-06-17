@@ -36,11 +36,22 @@ const App = () => {
             )
           } 
         />
-        <Route path="/login" element={!isAuthenticated ? <LoginPage /> : <Navigate to={
+
+        <Route 
+          path="/login" 
+          element={
+            !isAuthenticated ? <LoginPage /> : 
+            <Navigate to={
           isOnboarded ? "/" : "/onboarding"} />
-        }  />
-        <Route path="/signup" element={!isAuthenticated ? <SignupPage />: <Navigate to={
+        } />
+
+        <Route 
+          path="/signup" 
+          element={
+            !isAuthenticated ? <SignupPage /> : 
+            <Navigate to={
           isOnboarded ? "/" : "/onboarding"} />} />
+
         <Route
           path="/notifications"
           element={
@@ -52,7 +63,8 @@ const App = () => {
               <Navigate to={!isAuthenticated ? "/login" : "/onboarding"} />
             )
           }
-        />        
+        /> 
+
         <Route 
             path="/chat/:id" 
             element={
@@ -63,8 +75,19 @@ const App = () => {
               ) : (
                 <Navigate to={!isAuthenticated ? "/login" : "/onboarding"} />
               ) 
-            } />  
-        <Route path="/call" element={isAuthenticated ? <CallPage /> : <Navigate to="/login" />} />
+            } />
+
+        <Route 
+          path="/call/:id" 
+          element={
+            isAuthenticated && isOnboarded ? (
+            <CallPage /> 
+            ) : (
+            <Navigate to={!isAuthenticated ? "/login" : "/onboarding"} />
+            )
+           } 
+          />
+
         <Route path="/onboarding" 
           element={
             isAuthenticated ? (

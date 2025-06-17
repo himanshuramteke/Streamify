@@ -3,7 +3,7 @@ import { LANGUAGE_TO_FLAG } from "../constants";
 
 export const FriendCard = ({ friend }) => {
     return (
-         <div className="card bg-base-200 hover:shadow-md transition-shadow">
+    <div className="card bg-base-200 hover:shadow-md transition-shadow">
       <div className="card-body p-4">
         {/* USER INFO */}
         <div className="flex items-center gap-3 mb-3">
@@ -29,7 +29,7 @@ export const FriendCard = ({ friend }) => {
         </Link>
       </div>
     </div>
-    )
+  );
 }
 
 export function getLanguageFlag(language) {
