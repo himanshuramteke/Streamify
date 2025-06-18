@@ -2,7 +2,7 @@
 
 ![](./frontend/public/streamify-signup.png)
 
-![](./frontend/public/streamify-login.png)
+![](./frontend/public/SC-login.png)
 
 ![](./frontend/public/streamify-homepage.png)
 
